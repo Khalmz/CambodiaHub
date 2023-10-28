@@ -15,7 +15,7 @@ local Request = (syn and syn.request) or request or (http and http.request) or h
 
 local function GET(Method, Account, ...)
     local Arguments = {...}
-    local Url = 'http://localhost:' .. WebserverSettings.Port .. '/' .. Method .. '?Account=' .. Account
+    local Url = 'http:// .. _G.Host .. :' .. WebserverSettings.Port .. '/' .. Method .. '?Account=' .. Account
 
     for Index, Parameter in pairs(Arguments) do
         if typeof(Parameter) == 'boolean' then continue end
@@ -39,7 +39,7 @@ end
 
 local function POST(Method, Account, Body, ...)
     local Arguments = {...}
-    local Url = 'http://localhost:' .. WebserverSettings.Port .. '/' .. Method .. '?Account=' .. Account
+    local Url = 'http:// .. _G.Host .. :' .. WebserverSettings.Port .. '/' .. Method .. '?Account=' .. Account
 
     for Index, Parameter in pairs(Arguments) do
         Url = '&' .. Url .. Parameter
@@ -62,6 +62,10 @@ end
 
 function Account.new(Username, SkipValidation)
     local self = {} setmetatable(self, Account)
+
+    local IsValid = SkipValidation or GET('GetCSRFToken', Username)
+
+    if not IsValid or IsValid == 'Invalid Account' then return false end
 
     self.Username = Username
 

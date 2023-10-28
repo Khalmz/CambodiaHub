@@ -7,7 +7,7 @@ spawn(function()
 while wait() do
 pcall(function()
 
-
+    if MyAccount then
     KaiDesc = ""
 
     Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -279,7 +279,7 @@ pcall(function()
     MyAccount:SetAlias(KaiAlias)
     MyAccount:SetDescription(KaiDesc)
     wait(60)
-
+end
 end)
 end
 end)

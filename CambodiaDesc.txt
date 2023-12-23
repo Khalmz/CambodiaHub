@@ -139,6 +139,10 @@ pcall(function()
                     if w == "Leopard" then
                         KaiAlias = KaiAlias .. "|Leopard"
                     end
+
+		            if w == "Kitsune" then
+                        KaiAlias = KaiAlias .. "|Kitsune"
+                    end
                     KaiDesc = KaiDesc .. w .. "|"
                 end
                 count = count + 1
@@ -250,6 +254,11 @@ pcall(function()
                         if w == "Leopard" then
                             KaiAlias = KaiAlias .. "|Leopard"
                         end
+
+			            if w == "Kitsune" then
+                            KaiAlias = KaiAlias .. "|Kitsune"
+                    	end
+
                         KaiDesc = KaiDesc .. w .. "|"
                     end
                     count = count + 1
